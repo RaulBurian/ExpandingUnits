@@ -10,7 +10,7 @@ internal interface IItemsDataAccessService
     Task<bool> CreateItem(EntityItem entityItem);
 }
 
-public class ItemsDataAccessService : IItemsDataAccessService
+internal class ItemsDataAccessService : IItemsDataAccessService
 {
     private readonly ItemsDbContext _itemsDbContext;
 

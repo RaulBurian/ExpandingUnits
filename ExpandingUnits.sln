@@ -10,6 +10,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ExpandingUnits.SDK", "Expan
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ExpandingUnits.SDK.UnitTests", "ExpandingUnits.SDK.UnitTests\ExpandingUnits.SDK.UnitTests.csproj", "{D5503C92-9278-4710-8552-2939BB475560}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ExpandingUnitNonAPI", "ExpandingUnitNonAPI\ExpandingUnitNonAPI.csproj", "{B3078EEF-4929-4658-A2CC-06F1F2D3E97C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ExpandingUnitsNonAPI.UnitTests", "ExpandingUnitsNonAPI.UnitTests\ExpandingUnitsNonAPI.UnitTests.csproj", "{00D1818B-7E17-4114-B55F-2CD8CB11AF17}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -36,5 +40,13 @@ Global
 		{D5503C92-9278-4710-8552-2939BB475560}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D5503C92-9278-4710-8552-2939BB475560}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D5503C92-9278-4710-8552-2939BB475560}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B3078EEF-4929-4658-A2CC-06F1F2D3E97C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B3078EEF-4929-4658-A2CC-06F1F2D3E97C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B3078EEF-4929-4658-A2CC-06F1F2D3E97C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B3078EEF-4929-4658-A2CC-06F1F2D3E97C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{00D1818B-7E17-4114-B55F-2CD8CB11AF17}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{00D1818B-7E17-4114-B55F-2CD8CB11AF17}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{00D1818B-7E17-4114-B55F-2CD8CB11AF17}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{00D1818B-7E17-4114-B55F-2CD8CB11AF17}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

@@ -27,9 +27,17 @@ var app = builder.Build();
 app.UseSwagger();
 app.UseSwaggerUI();
 
-app.MapGet("/items", async (IItemsService itemsService) =>
+app.MapGet("/items", async (IItemsDataAccessService dataAccessService, IValidationApiService validationApiService, IThirdPartyLibraryService thirdPartyLibraryService, ILogger<ItemsService> logger) =>
     {
-        var items = await itemsService.GetItems();
+        var entityItems = await dataAccessService.GetItems();
+
+        logger.LogInformation("Retrieved items from DB");
+
+        await thirdPartyLibraryService.SendEvent(new ThirdPartyEvent("Items", $"Get {entityItems.Length}"));
+
+        logger.LogInformation("Sent Items Get event");
+
+        var items = entityItems.Select(item => new Item(item.ItemId, item.ItemName, item.ItemQuantity)).ToArray();
 
         return Results.Ok(new GetItemsResponse
         {

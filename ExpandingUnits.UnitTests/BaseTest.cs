@@ -2,12 +2,14 @@
 using ExpandingUnits.Api.Services;
 using ExpandingUnits.UnitTests.Fixture;
 using ExpandingUnits.UnitTests.HttpSubs;
+using ExpandingUnits.UnitTests.Logging;
 using ExpandingUnits.UnitTests.SimpleSubs;
 using Microsoft.AspNetCore.Mvc.Testing;
 using Microsoft.AspNetCore.TestHost;
 using Microsoft.Data.SqlClient;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Logging;
 using Testcontainers.MsSql;
 using Xunit.Abstractions;
 using Xunit.Extensions.AssemblyFixture;
@@ -43,7 +45,7 @@ public class BaseTest : IAsyncLifetime, IAssemblyFixture<SqlFixture>
             {
                 builder.ConfigureTestServices(services =>
                 {
-                    // services.AddSingleton<ILoggerProvider>(new TestOutputHelperLoggingProvider(Output));
+                    services.AddSingleton<ILoggerProvider>(new TestOutputHelperLoggingProvider(Output));
 
                     var dbContextDescriptor = services
                         .First(s => s.ServiceType == typeof(DbContextOptions<ItemsDbContext>));
@@ -55,8 +57,8 @@ public class BaseTest : IAsyncLifetime, IAssemblyFixture<SqlFixture>
 
                     services.AddDbContext<ItemsDbContext>(opts => { opts.UseSqlServer(connectionString); });
 
-                    services.AddSingleton<IThirdPartyLibraryService>(ThirdPartyLibrarySub);
-                    // services.AddSingleton<IThirdPartyLibraryService>(new ThirdPartyLibrarySubEx());
+                    // services.AddSingleton<IThirdPartyLibraryService>(ThirdPartyLibrarySub);
+                    services.AddSingleton<IThirdPartyLibraryService>(new ThirdPartyLibrarySubEx());
 
                     services.AddSingleton<IHttpClientFactory>(new TestHttpClientFactory(new Dictionary<string, TestHttpClientFactory.HttpServerInfo>
                     {
